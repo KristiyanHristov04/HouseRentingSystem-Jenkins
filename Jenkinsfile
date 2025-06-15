@@ -5,21 +5,21 @@ pipeline {
         stage("Restore NuGet Packages") {
             steps {
                 echo "📦 Restoring NuGet packages..."
-                bat "dotnet restore HouseRentingSystem.sln"
+                bat "dotnet restore"
             }
         }
 
         stage("Build Solution") {
             steps {
                 echo "🔨 Building solution..."
-                bat "dotnet build HouseRentingSystem.sln --configuration Release"
+                bat "dotnet build"
             }
         }
 
         stage("Run Tests") {
             steps {
                 echo "🧪 Running unit and integration tests..."
-                bat "dotnet test tests/HouseRentingSystem.Tests/HouseRentingSystem.Tests.csproj --configuration Release --no-build --logger trx"
+                bat "dotnet test"
             }
         }
     }
